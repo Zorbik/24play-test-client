@@ -13,15 +13,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useUpdateUserMutation } from "../redux/auth/authApi";
 
-const style = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "10px",
-  marginTop: "50px",
-};
-
 export const Test = () => {
   const { category } = useParams();
   const { data, isLoading } = useGetTestsQuery(category);
@@ -60,7 +51,17 @@ export const Test = () => {
   if (isLoading) return <CircularProgress />;
   return (
     <>
-      <form onSubmit={handleSubmit} style={style}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "10px",
+          marginTop: "50px",
+        }}
+      >
         {data &&
           data.map((quiz) => (
             <div key={quiz._id}>

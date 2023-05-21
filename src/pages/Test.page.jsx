@@ -1,13 +1,9 @@
 import { Button, Container } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
-// import { useGetTestsQuery } from "../redux/tests/testApi";
 
 export const TestPage = () => {
   const navigate = useNavigate();
 
-  //   const { data = [], isLoading } = useGetTestsQuery(category);
-
-  //   if (isLoading) return <h1>...Loading</h1>;
   return (
     <>
       <Container

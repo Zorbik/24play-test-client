@@ -54,7 +54,7 @@ export const authApi = createApi({
     }),
 
     getStatistic: build.query({
-      query: () => "statistic",
+      query: (category) => `statistic/${category}`,
       invalidatesTags: ["Auth"],
     }),
   }),
