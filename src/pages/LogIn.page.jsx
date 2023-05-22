@@ -50,7 +50,7 @@ export const LogInPage = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
+          height: "90vh",
         }}
         maxWidth="xs"
       >

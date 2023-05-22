@@ -14,7 +14,7 @@ export default function Header() {
 
   const handleClick = () => {
     dispatch(logOut());
-    navigate("/login");
+    navigate("/");
   };
 
   return (

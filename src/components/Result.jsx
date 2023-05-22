@@ -26,13 +26,13 @@ export const Result = () => {
             <TableHead>
               <TableRow>
                 <TableCell>Email</TableCell>
-                {questions.map((question, index) => (
+                {questions?.map((question, index) => (
                   <TableCell key={index}>{question}</TableCell>
                 ))}
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((item, index) => (
+              {data?.map((item, index) => (
                 <TableRow key={index}>
                   <TableCell>{item.email}</TableCell>
                   {item.answers.map((answer, answerIndex) => (

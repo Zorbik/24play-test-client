@@ -7,7 +7,7 @@ export const PrivateRoute = ({ children }) => {
   const { isLoggedIn } = useSelector((state) => state.auth);
   const [{ isLoading }] = useLogInUserMutation();
 
-  return isLoggedIn && !isLoading ? children : <Navigate to="/login" />;
+  return isLoggedIn && !isLoading ? children : <Navigate to="/" />;
 };
 
 PrivateRoute.propTypes = {

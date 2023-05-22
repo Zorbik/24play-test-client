@@ -7,9 +7,9 @@ export const PublicRoute = ({ children }) => {
 
   if (!isLoggedIn) return children;
 
-  if (isLoggedIn && user?.role === "admin") return <Navigate to="/statistic" />;
+  if (isLoggedIn && user?.role === "admin") return <Navigate to="statistic" />;
 
-  if (isLoggedIn) return <Navigate to="/test" />;
+  if (isLoggedIn) return <Navigate to="test" />;
 };
 
 PublicRoute.propTypes = {

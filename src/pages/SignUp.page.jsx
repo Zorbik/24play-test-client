@@ -34,7 +34,7 @@ export const SignUpPage = () => {
 
       dispatch(signUp(res));
       reset();
-      navigate("/test");
+      navigate("test");
     } catch (error) {
       showToast(error?.data.message, "error");
     }
