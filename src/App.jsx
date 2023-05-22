@@ -32,6 +32,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
+              index
+              element={
+                <PublicRoute>
+                  <LogInPage />
+                </PublicRoute>
+              }
+            />
+            <Route
               path="signup"
               element={
                 <PublicRoute>
@@ -39,14 +47,7 @@ function App() {
                 </PublicRoute>
               }
             />
-            <Route
-              path="login"
-              element={
-                <PublicRoute>
-                  <LogInPage />
-                </PublicRoute>
-              }
-            />
+
             <Route
               path="test"
               element={
