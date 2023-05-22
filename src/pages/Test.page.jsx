@@ -1,8 +1,15 @@
 import { Button, Container } from "@mui/material";
+import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export const TestPage = () => {
   const navigate = useNavigate();
+  const [, setSelectedCategory] = useState("");
+
+  const handleTestButtonClick = (category) => {
+    setSelectedCategory(category);
+    navigate(category);
+  };
 
   return (
     <>
@@ -20,7 +27,7 @@ export const TestPage = () => {
           variant="contained"
           color="primary"
           size="large"
-          onClick={() => navigate("quiz1")}
+          onClick={() => handleTestButtonClick("/test/quiz1")}
         >
           Опитування 1
         </Button>
@@ -28,7 +35,7 @@ export const TestPage = () => {
           variant="contained"
           color="error"
           size="large"
-          onClick={() => navigate("quiz2")}
+          onClick={() => handleTestButtonClick("/test/quiz2")}
         >
           Опитування 2
         </Button>

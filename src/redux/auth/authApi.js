@@ -19,6 +19,14 @@ export const authApi = createApi({
   }),
 
   endpoints: (build) => ({
+    getUser: build.query({
+      query: () => ({
+        url: "current",
+      }),
+
+      providesTags: ["Auth"],
+    }),
+
     registerUser: build.mutation({
       query: (user) => ({
         url: `signup`,
@@ -50,6 +58,7 @@ export const authApi = createApi({
         method: "PATCH",
         body: statistic,
       }),
+
       invalidatesTags: ["Auth"],
     }),
 
@@ -61,6 +70,7 @@ export const authApi = createApi({
 });
 
 export const {
+  useGetUserQuery,
   useRegisterUserMutation,
   useLogInUserMutation,
   useLogOutUserMutation,

@@ -4,6 +4,16 @@ import { testApi } from "./tests/testApi";
 import persistReducer from "redux-persist/es/persistReducer";
 import { authSlice } from "./auth/authSlice";
 import { authApi } from "./auth/authApi";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
+import persistStore from "redux-persist/es/persistStore";
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist";
 
 const userPersistConfig = {
   key: "user",
@@ -17,5 +27,13 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([testApi.middleware, authApi.middleware]),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat([testApi.middleware, authApi.middleware]),
 });
+
+setupListeners(store.dispatch);
+
+export const persistor = persistStore(store);

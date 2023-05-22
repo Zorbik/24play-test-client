@@ -1,22 +1,33 @@
 import AppBar from "@mui/material/AppBar";
-// import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
-// import IconButton from "@mui/material/IconButton";
-// import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../redux/auth/authSlice";
 
 export default function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+
+  const handleClick = () => {
+    dispatch(logOut());
+    navigate("/login");
+  };
+
   return (
     <AppBar>
       <Toolbar>
         <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
           Quiz
         </Typography>
-        <Button color="inherit">
-          <LogoutIcon /> Logout
-        </Button>
+        {isLoggedIn && (
+          <Button color="inherit" onClick={handleClick}>
+            <LogoutIcon /> Logout
+          </Button>
+        )}
       </Toolbar>
     </AppBar>
   );

@@ -14,7 +14,7 @@ export const Result = () => {
   const { category } = useParams();
   const { data, isLoading } = useGetStatisticQuery(category);
 
-  const questions = data[0].questions;
+  const questions = data?.[0]?.questions;
 
   if (isLoading) return <CircularProgress />;
 
